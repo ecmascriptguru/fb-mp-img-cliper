@@ -1,7 +1,8 @@
 {
    "background": {
       "scripts": [
-         "libs/jquery.min.js",
+         "assets/js/jquery.min.js",
+         "assets/js/utils.js",
          "assets/js/background.js"
       ]
    },
@@ -12,17 +13,18 @@
    },
    "content_scripts": [
       {
-         "js": [ "assets/js/content.js" ],
-         "matches": [ "\u003Call_urls>" ]
-      },
-      {
-         "js": [ "assets/js/facebook.js" ],
+         "js": [ "assets/js/jquery.min.js", "assets/js/facebook.js" ],
          "matches": [ "*://*.facebook.com/*" ],
          "runt_at": "document_idle"
       },
       {
-         "js": [ "assets/js/walmart.js" ],
+         "js": [ "assets/js/jquery.min.js", "assets/js/utils.js", "assets/js/walmart.js" ],
          "matches": [ "*://*.walmart.com/*" ],
+         "runt_at": "document_idle"
+      },
+      {
+         "matches": ["https://i5.walmartimages.com/"],
+         "js": ["assets/js/utils.js", "assets/js/walmart_image_copier.js"],
          "runt_at": "document_idle"
       }
    ],
@@ -38,6 +40,8 @@
    "minimum_chrome_version": "58",
    "name": "__MSG_extension_name__",
    "short_name": "__MSG_extension_short_name__",
-   "permissions": [ "*://*.facebook.com/*", "https://www.walmat.com/*", "storage", "background", "notifications" ],
+   "permissions": [ "*://*.facebook.com/*", "https://www.walmat.com/*", "https://i5.walmartimages.com/*", 
+      "storage", "background", "tabs", "notifications", "clipboardWrite", "clipboardRead" ],
+   "web_accessible_resources": ["https://i5.walmartimages.com/*"],
    "version": "1.0.0"
 }
