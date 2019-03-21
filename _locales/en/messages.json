@@ -1,0 +1,11 @@
+{
+   "extension_name": {
+      "message": "FB Marketplace toolkit"
+   },
+   "extension_short_name": {
+      "message": "FBMT"
+   },
+   "extension_description": {
+      "message": "Write something here!"
+   }
+}
